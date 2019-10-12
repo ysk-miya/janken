@@ -1,0 +1,187 @@
+        .outline {
+            text-align: center;
+        }
+        
+        .p{
+            font-size: 70px;
+            margin: 0;
+        }
+             
+         .random_box{
+          display: flex;
+          justify-content: space-around;
+        }
+
+        .roulette {
+            display: inline-block;
+            
+            text-align: center;
+            border-radius: 10px;
+            font-size: 50px;
+            width: 150px;
+            height: 100px;
+            background-color: black;
+            color: white;
+        }
+
+        body {
+            margin: 0;
+            background: url(guchokipar.jpeg)
+        
+        }
+
+        /* header {
+            background-color: #fff;
+            border-bottom: 1px solid #ccc;
+            text-align: center;
+            background: url(../guchokipar.jpeg);
+            height: auto;
+            width: auto;
+        } */
+
+        header h1{
+            color:blue;
+            font-size: 80px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        main {
+            border-bottom: 1px solid #ccc;
+        }
+
+        
+
+        p {
+            font-size: 30px;
+            text-align: left;
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .me_btn {
+            width: 100px;
+            height: 50px;
+            font-size: 50px;
+            display: inline-block;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            border-radius: 4px;
+            color: #ffffff;
+            background-image: linear-gradient(#1452e2 0%, #67ceff 100%);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+            border-bottom: solid 3px #5e7fca;
+            cursor: grab;
+        }
+            
+        .me_btn:hover{
+            opacity: 0.8;
+
+        }
+        .me_btn:active {
+             -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+            box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+            border-bottom: none;
+        }
+
+        .you_btn {
+            width: 100px;
+            height: 50px;
+            font-size: 50px;
+            display: inline-block;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            border-radius: 4px;
+            color: #0b0c0b;
+            background-image: linear-gradient(#f7fa46 0%, #e8ff67 100%);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+            border-bottom: solid 3px #5e7fca;
+            cursor: grab;
+            
+        }
+        .you_btn:hover{
+            opacity: 0.8;
+        }
+
+        .you_btn:active {
+             -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+            box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+            border-bottom: none;
+        }
+
+
+/* _____________________
+ */
+        .text_box{
+            padding: 0;
+            border-top: 1px solid #000000;
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+}
+
+         .text_box p{
+           text-align: center;
+            list-style-type: none;
+            border: 1px solid #666;
+            background-color: #FFF;
+            display: table-cell;       
+}
+
+          .action_box{
+              display: flex;
+            
+              margin: 20px 100px;
+          }
+
+          .action_text{
+           display: inline-block;
+            text-align: center;
+            border: 1px solid #000000;
+            font-size: 40px;
+            width: 200px;
+            height: 150px;
+          background-color: #fff;
+        }
+
+        /* footer{      
+            height: 200px;
+            text-align: center;
+            background: url(../guchokipar.jpeg);
+} */
+          
+        .main_result{
+            font-size: 40px;
+            padding: 0.5em 1em;
+            margin:auto;
+            margin-top: 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            color: #ffffff;
+            background-image: linear-gradient(#fd67d7 0%, #ff6774 100%);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+            border-bottom: solid 3px #5e7fca;
+            cursor: grab;
+
+         } 
+        .main_result:hover{
+            opacity: 0.8;
+        } 
+
+        .main_result:active {
+             -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+            box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+            border-bottom: none;
+         }
+
+        .fin_result{
+            margin-top: 30px;
+            margin-left: 150px;
+            font-size: 70px;
+          }

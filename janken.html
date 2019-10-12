@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>じゃんけん</title>
+
+</head>
+
+<body>
+    <header>
+        <h1> </h1>
+    </header>
+
+    <main>
+        <ul>
+            <li id='me_btn' class="me_btn">click</li>
+            <li id='you_btn' class="you_btn">click</li>
+        </ul>
+    </main>
+
+    <div class="random_box">
+        <div class="outline">
+            <p class="p">自 分</p>
+            <div class="roulette" id="roulette1">0-29</div>
+            <div id="hands1" class="action_text"> </div>
+        </div>
+        <div class="outline">
+            <p class="p">相 手</p>
+            <div class="roulette" id="roulette2">0-29</div>
+            <div id="hands2" class="action_text"> </div>
+        </div>
+    </div>
+
+
+    </div>
+
+
+    <div class="text_box">
+        <p id="gu_nav">0〜9 = グー</p>
+        <p id="cho_nav">10〜19 = チョキ</p>
+        <p id="par_nav">21〜29 = パー</p>
+    </div>
+
+    <div class="action_box">
+
+        <div id="main_result" class='main_result'>結果 →click←</div>
+    </div>
+
+
+    <footer>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript"></script>
+    <script>
+
+        // ルーレット１の変数定義＿＿＿＿＿＿＿＿＿＿
+
+        var click = 0;
+        var timer = null;
+        var value = Math.floor(Math.random() * 30);
+
+
+        // ルーレット１の関数定義
+
+        function stop() {
+            clearInterval(timer);
+            $('#roulette1').text(value);
+        }
+
+        function Random() {
+            var value = Math.floor(Math.random() * 30);
+            $('#roulette1').text(value);
+        }
+
+        // 自分ボタン クリックでルーレット１(自分)を開始 
+
+        $('#me_btn').click(function () {
+
+            if (click == 0) {
+                timer = setInterval(Random, 80);
+                click = click + 1;  //クリックはここで＋１回になっている
+                $('#me_btn').text('stop')
+                // ２回目のクリックでストップ
+
+            } else if (click == 1) {
+                stop();
+                judge(); // 関数定義は下
+            }
+        });
+
+        // 止まった数字で条件分岐
+        // 0〜9 の時 グー
+        // 10〜19 の時 チョキ
+        // 21〜29 の時 パー
+        function judge() {
+            var result = ['グー', 'チョキ', 'パー'];
+
+            $('#hands1').text(result[value]);
+
+            if (value >= 0 && value <= 9) {
+                $('#hands1').text(result[0]);
+                $('#gu_nav').css('background-color', '#67ceff');
+
+            } else if (value >= 10 && value <= 19) {
+                $('#hands1').text(result[1]);
+                $('#cho_nav').css('background-color', '#67ceff');
+
+            } else {
+                $('#hands1').text(result[2]);
+                $('#par_nav').css('background-color', '#67ceff');
+            }
+        };
+
+
+        // ルーレット２の変数定義＿＿＿＿＿＿＿＿＿＿＿
+
+        var click2 = 0;
+        var timer2 = null;
+        var value2 = Math.floor(Math.random() * 30);
+
+
+
+        // ルーレット２の関数定義
+
+        function Random2() {
+            var value2 = Math.floor(Math.random() * 30);
+            $('#roulette2').text(value2);
+        }
+
+        function stop2() {
+            clearInterval(timer2);
+            $('#roulette2').text(value2);
+        }
+
+
+        $('#you_btn').click(function () {
+
+            if (click2 == 0) {
+                timer2 = setInterval(Random2, 80);
+                click2 = click2 + 1;
+                $('#you_btn').text('stop')
+
+            } else {
+                stop2();
+                judge2();
+            }
+        });
+
+        // 止まった数字で条件分岐
+        // 0〜9 の時 グー
+        // 10〜19 の時 チョキ
+        // 21〜29 の時 パー
+        function judge2() {
+            var result2 = ['グー', 'チョキ', 'パー'];
+
+            $('#hands2').text(result2[value2]);
+
+            if (value2 >= 0 && value2 <= 9) {
+                $('#hands2').text(result2[0]);
+                $('#gu_nav').css('background-color', 'yellow');
+            } else if (value2 >= 10 && value2 <= 19) {
+                $('#hands2').text(result2[1]);
+                $('#cho_nav').css('background-color', 'yellow');
+            } else {
+                $('#hands2').text(result2[2]);
+                $('#par_nav').css('background-color', 'yellow');
+            }
+        };
+
+
+
+        // 結果ボタンを押した時のアクション
+
+        $('#main_result').on('click', function () {
+            judge3();
+        });
+
+        // 両者の結果で勝敗を記載
+
+        // 関数judge3 自分がグーの時、チョキの時、パーの時、相手の出してでmain_result表示
+        // この関数を上記、自分がグーを出した時に加える
+
+
+        function judge3() {
+            var main_result = ['あなたの勝ち', 'あいこ', 'あなたの負け']
+            var fin = $("#hands1").text();  //text引用
+            console.log(fin);
+            var fin2 = $('#hands2').text();
+            console.log(fin2);
+            var result_fin = ['グー', 'チョキ', 'パー']
+            if (fin == fin2) {
+
+                $('#main_result').text(main_result[1]);
+            }
+            else if (fin == result_fin[0] && fin2 == result_fin[1]) {
+
+                $('#main_result').text(main_result[0]);
+            }
+            else if (fin == result_fin[0] && fin2 == result_fin[2]) {
+
+                $('#main_result').text(main_result[2]);
+
+            }
+            else if (fin == result_fin[1] && fin2 == result_fin[0]) {
+
+                $('#main_result').text(main_result[2]);
+
+            }
+            else if (fin == result_fin[1] && fin2 == result_fin[1]) {
+
+                $('#main_result').text(main_result[1]);
+
+            }
+            else if (fin == result_fin[1] && fin2 == result_fin[2]) {
+
+                $('#main_result').text(main_result[0]);
+
+            }
+            else if (fin == result_fin[2] && fin2 == result_fin[0]) {
+
+                $('#main_result').text(main_result[0]);
+
+            }
+            else if (fin == result_fin[2] == fin2 == result_fin[1]) {
+
+                $('#main_result').text(main_result[2]);
+
+            }
+            else {
+
+                $('#main_result').text(main_result[1]);
+
+            }
+
+        };
+    </script>
+</body>
+
+</html>
